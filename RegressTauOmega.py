@@ -29,10 +29,10 @@ Gama = np.zeros((len(Foot_contact), 5, 240))
 for i in range(len(Foot_contact)):
 
     # Compute Step Duration,Tau, for every four joints : Left heel,Left toe,Right heel,Right toe
-    Step_duration = np.zeros(Foot_contact[i].shape)
+    Step_duration = np.zeros(np.shape(Foot_contact[i]))
 
     for j in range(0, Foot_contact[i].shape[1]):
-        window = slice(max(j - 60, 0), min(j + 60, Foot_contact[i].shape[1]))
+        window = slice(max(j - 60, 0), min(j + 60, np.shape(Foot_contact[i])[1]))
 
         # compute the ratio of foot joints are up to the ratio of frames foot joint are down
         d = np.mean((Foot_contact[i, :, window] > 0), axis=1)  # Feet is down
