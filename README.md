@@ -1,5 +1,5 @@
 # What is This
-this is a simple re-implementation of the paper "A Deep Learning Framework for Character Motion Synthesis and Editing"(1). Only Sections 5 and 6 are re-implemented.
+This is a simple re-implementation of the paper "A Deep Learning Framework for Character Motion Synthesis and Editing"(1). Only Sections 5 and 6 are re-implemented.
 
 
 # Demo
