@@ -6,16 +6,17 @@ this is a simple re-implementation of the paper "A Deep Learning Framework for C
 To see a demo, download "Demo.mp4" or simply run "Demo.py". To run correclty, Keras with tensorflow backend is required.
 
 # Structure
-Autoencoder.py learns the motion manifold using CNN. This is the re-implementation of section 5.
+**Autoencoder.py** learns the motion manifold using CNN. This is the re-implementation of section 5.
 
-Motion_Synthesis.py maps trajectory and foot contact information to motion in hidden space. This is the re-implementation of section 6.2.
+**Motion_Synthesis.py** maps trajectory and foot contact information to motion in hidden space. This is the re-implementation of section 6.2.
 
-RegressTauOmega.py learns a regresseion between trajectory and step frequency/duration for disambiguation. This is the re-implementation of section 6.3.
+**RegressTauOmega.py** learns a regresseion between trajectory and step frequency/duration for disambiguation. This is the re-implementation of section 6.3.
 
-The input to the system is a 3 dimensional vector which describes the trajectory of the movement. Then the data of step frequency/duration
-is extracted from trajectory and converted to foot contact information. Later, we feed this data to the Motion Synthesis network which creates motion in hidden space. Finally, by using decoder part of auto encoder, a low-level description of the movement is achieved.
+**Demo.py** randomly select a curve from the file "data\curvez.npz" and create the character animation with respect to the curve. These curves are not used during training process.
 
-*Notice that to re-train the network, you shoud place the processed CMU dataset in "\data" folder. Due to it's huge size, it's omitted.
+The input to the system is a 3 dimensional vector which describes the trajectory of the movement. Then the data of step frequency/duration is extracted from trajectory and converted to foot contact information. Later, we feed this data to the Motion Synthesis network which creates motion in hidden space. Finally, by using decoder part of auto encoder, a low-level description of the movement is achieved.
+
+*Notice that to re-train the network, you shoud place the processed CMU dataset in "\data" folder. Due to it's huge size, it's not included.
 
 # Database
 The data used in this project was obtained from mocap.cs.cmu.edu.
