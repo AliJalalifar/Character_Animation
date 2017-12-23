@@ -26,13 +26,13 @@ train_X = test_X = Data[:train_length]
 train_Y = test_Y = Data[train_length:]
 
 #train auto-encoder
-input_X = Input(shape=(240,73))
+input_X = Input(shape=(240,70))
 Conv_layer1 = Conv1D(256, (25,), activation='relu', padding='same',use_bias=True)(input_X)
 encoded = MaxPooling1D(2,padding='same')(Conv_layer1)
 Dropout_Conv = Dropout(rate=0.25,input_shape=(120,256))(Conv_layer1)
 decoded = UpSampling1D(size=2)(encoded)
 Dropout_Conv = Dropout(rate=0.25,input_shape=(120,256))(decoded)
-Conv_layer2 = Conv1D(73,(25,), activation='relu', padding='same',use_bias=True)(Dropout_Conv)
+Conv_layer2 = Conv1D(70,(25,), activation='relu', padding='same',use_bias=True)(Dropout_Conv)
 
 autoencoder = Model(input_X, Conv_layer2)
 autoencoder.summary()
