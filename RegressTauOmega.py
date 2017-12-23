@@ -32,6 +32,8 @@ for i in range(len(Foot_contact)):
     Step_duration = np.zeros(np.shape(Foot_contact[i]))
 
     for j in range(0, Foot_contact[i].shape[1]):
+        
+        #limit  calculation most recent frames
         window = np.arange(max(j - 60, 0), min(j + 60, np.shape(Foot_contact[i])[1]))
 
         # compute the ratio of foot joints are up to the ratio of frames foot joint are down
