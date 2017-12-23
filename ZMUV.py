@@ -16,7 +16,7 @@ X = np.swapaxes(X, 1, 2)
 mean = X.mean(axis=2).mean(axis=0)
 
 #calculation std for every feature
-std = np.array([[[X.std()]]]).repeat(X.shape[1], axis=1)
+std = X.std(axis=2).std(axis=0)
 
 #save data for future use
 np.savez_compressed('ZMUV_locomotion.npz', mean=mean, std=std)
