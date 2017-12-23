@@ -39,10 +39,10 @@ Wmean = np.swapaxes(preprocess_footcontact['Wmean'], 1, 2)
 Wstd = np.swapaxes(preprocess_footcontact['Wstd'], 1, 2)
 
 
-W = regressor.predict(Trajectory) #outputs [omega,tau_lh,tau_lt,tau_rh,tau_rt]
-W = (W * Wstd) + Wmean
+gamma = regressor.predict(Trajectory) #outputs [omega,tau_lh,tau_lt,tau_rh,tau_rt]
+gamma = (gamma * Wstd) + Wmean
 
-foot_contact = np.swapaxes(F_extract(W),0,2)[0] #Extract foot_contact information from omega and tau
+foot_contact = np.swapaxes(F_extract(gamma), 0, 2)[0] #Extract foot_contact information from omega and tau
 
 #concatenate trajectory and foot contact information to feed to the decoder of autoencoder
 Upsilon_T = (np.concatenate([Trajectory[0], foot_contact], axis=1))
@@ -65,8 +65,7 @@ X = decoder.predict(hs_vector)
 X[:,:,66:69]= Trajectory[0, :, 0:3]
 
 
-X2 = (X*Xstd)+Xmean
-X2 = np.swapaxes(X2,1,2)
+X = ((X*Xstd)+Xmean).swapaxes(1,2)
 
 # Animate! :D
 animation_plot([X2],interval=1)
