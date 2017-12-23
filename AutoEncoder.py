@@ -35,8 +35,6 @@ Dropout_Conv = Dropout(rate=0.25,input_shape=(120,256))(decoded)
 Conv_layer2 = Conv1D(73,(25,), activation='relu', padding='same',use_bias=True)(Dropout_Conv)
 
 autoencoder = Model(input_X, Conv_layer2)
-encoder = Model(input_X, encoded)
-encoded_input = Input(shape=(120,256))
 autoencoder.summary()
 myadam = optimizers.adam(lr=0.0001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
 autoencoder.compile(optimizer=myadam, loss='mse')
