@@ -25,5 +25,10 @@ def F_extract(W,c=1,ah=-0.1,at=0,bh=0,bt=0):
 
 # Encoding X input | feature space -> hidden space
 def Motion_Edit(hs_vector):
-    loaded_model = load_Model('.\\model\\autoencoder_encoder_ND')
-    return loaded_model.predict(hs_vector)
+    loaded_model = load_Model('.\\model\\autoencoder_ND')
+    Xinput = Input(shape=(240,70))
+    Conv_layer  = loaded_model.layers[1](Xinput)
+    Pooling  = loaded_model.layers[2](Conv_layer)
+    encoder = Model(Xinput,Pooling)
+    return encoder.predict(hs_vector)
+
