@@ -16,8 +16,8 @@ preprocess = np.load('ZMUV_locomotion.npz')
 Data = np.load(DataSet)['clips']
 
 # make data Zero Mean - Unit Variance
-Xmean = np.swapaxes(preprocess['mean'],1,2)
-Xstd = np.swapaxes(preprocess['mean'],1,2)
+Xmean = preprocess['mean']
+Xstd = preprocess['std']
 Data = Data-Xmean/Xstd
 
 # split train and validation data, since it's an autoencoder input and output are the same
