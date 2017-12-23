@@ -21,8 +21,9 @@ Xstd = preprocess['std']
 Data = Data-Xmean/Xstd
 
 # split train and validation data, since it's an autoencoder input and output are the same
-train_X = test_X = Data[:len(Data)//2+700]
-train_Y = test_Y = Data[len(Data)//2+700:]
+train_length = np.floor(len(Data)*0.8)
+train_X = test_X = Data[:train_length]
+train_Y = test_Y = Data[train_length:]
 
 #train auto-encoder
 input_X = Input(shape=(240,73))
