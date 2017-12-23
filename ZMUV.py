@@ -13,7 +13,7 @@ X = np.load(Dataset_address)['clips']
 X = np.swapaxes(X, 1, 2)
 
 #calculation mean for every feature
-mean = X.mean(axis=2).mean(axis=0)[np.newaxis,:,np.newaxis]
+mean = X.mean(axis=2).mean(axis=0)
 
 #calculation std for every feature
 std = np.array([[[X.std()]]]).repeat(X.shape[1], axis=1)
