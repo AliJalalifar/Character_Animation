@@ -49,7 +49,8 @@ for i in range(len(Foot_contact)):
             if toggled_frame == -1 and (Foot_contact[i, j, k - 1] * Foot_contact[i, j, k]) < 0:
                 toggled_frame = k
             elif (Foot_contact[i, j, k - 1] * Foot_contact[i, j, k]) < 0:
-                Step_Frequency[j, toggled_frame:k + 1] = np.pi / (k - toggled_frame)
+                Li = (k - toggled_frame)
+                Step_Frequency[j, toggled_frame:k + 1] = np.pi / Li
                 toggled_frame = k
 
 
