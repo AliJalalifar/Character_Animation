@@ -32,11 +32,11 @@ for i in range(len(Foot_contact)):
     Step_duration = np.zeros(np.shape(Foot_contact[i]))
 
     for j in range(0, Foot_contact[i].shape[1]):
-        window = slice(max(j - 60, 0), min(j + 60, np.shape(Foot_contact[i])[1]))
+        window = (max(j - 60, 0), min(j + 60, np.shape(Foot_contact[i])[1]))
 
         # compute the ratio of foot joints are up to the ratio of frames foot joint are down
-        d = np.mean((Foot_contact[i, :, window] > 0), axis=1)  # Feet is down
-        u = np.mean((Foot_contact[i, :, window] < 0), axis=1)  # Feet is up
+        d = (Foot_contact[i, :, window] > 0).sum()  # count number of frames which Foot is on the floor
+        u = (Foot_contact[i, :, window] < 0).sum()  # count number of frames which Foot isn't on the floor
         Step_duration[:, j] = ((np.pi * d) / (u + d))  # compute ratio
         Tau = np.cos(((np.pi * d) / (u + d)))  # See section 6.3
 
@@ -63,7 +63,7 @@ for i in range(len(Foot_contact)):
 Gmean = Gama.mean(axis=2).mean(axis=0)[np.newaxis, :, np.newaxis]
 Gstd = Gama.std(axis=2).mean(axis=0)[np.newaxis, :, np.newaxis]
 Gama = (Gama - Gmean) / Gstd
-# np.savez_compressed('ZMUV_TauOmega.npz', Wmean=Gmean, Wstd=Gstd)
+np.savez_compressed('ZMUV_TauOmega.npz', Wmean=Gmean, Wstd=Gstd)
 
 #Train the network
 input_X = Input(shape=(240,3))
