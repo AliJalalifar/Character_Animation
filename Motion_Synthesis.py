@@ -22,7 +22,7 @@ Data = (Data - Xmean)/Xstd
 
 # extract Trajectory and foot contact information / These are inputs for Our Deep net
 X_decoded = Data
-Upsilon_T = Data[:,:,-7:]  #[xvelocity,yvelocity,rvelocity, lh,lt,rh,rt]
+Upsilon_T = Data[:,:,-7:]  #[xvelocity,zvelocity,rvelocity, lh,lt,rh,rt]
 
 # map data to motion manifold space | feature space -> hidden space
 X_encoded = Motion_Edit(X_decoded)
