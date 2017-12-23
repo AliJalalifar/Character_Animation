@@ -42,7 +42,7 @@ W = (W * Wstd) + Wmean
 
 foot_contact = np.swapaxes(F_extract(W),0,2)[0] #Extract foot_contact information from omega and tau
 
-#concatenation trajectory and foot contact information to feed the decoder of autoencoder
+#concatenate trajectory and foot contact information to feed to the decoder of autoencoder
 Upsilon_T = (np.concatenate([Trajectory[0], foot_contact], axis=1))
 Upsilon_T = np.reshape(Upsilon_T,(1,240,7))
 
