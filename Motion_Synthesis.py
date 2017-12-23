@@ -27,7 +27,7 @@ Upsilon_T = Data[:,:,-7:]  #[xvelocity,yvelocity,rvelocity, lh,lt,rh,rt]
 # map data to motion manifold space | feature space -> hidden space
 X_encoded = Motion_Edit(X_decoded)
 
-#defining Network structure , input-shape: (None,240,7) / output-shape: (None,240,5)
+#defining Network structure , input-shape: (None,240,7) / output-shape: (None,120,256)
 input_shape = Input((240,7))
 ConvLayer1 = Conv1D(filters=64,kernel_size=(45,),input_shape=(240,7),use_bias=True,activation='relu',padding='same')(input_shape)
 ConvLayer2 = Conv1D(filters=128,kernel_size=(25,),use_bias=True,activation='relu',padding='same')(ConvLayer1)
