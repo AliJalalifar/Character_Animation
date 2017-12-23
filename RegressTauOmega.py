@@ -32,7 +32,7 @@ for i in range(len(Foot_contact)):
     Step_duration = np.zeros(np.shape(Foot_contact[i]))
 
     for j in range(0, Foot_contact[i].shape[1]):
-        window = (max(j - 60, 0), min(j + 60, np.shape(Foot_contact[i])[1]))
+        window = np.arange(max(j - 60, 0), min(j + 60, np.shape(Foot_contact[i])[1]))
 
         # compute the ratio of foot joints are up to the ratio of frames foot joint are down
         d = (Foot_contact[i, :, window] > 0).sum()  # count number of frames which Foot is on the floor
@@ -57,7 +57,7 @@ for i in range(len(Foot_contact)):
 
    #Sometimes StepFrequency is empty, so to prevent nan, we replace nan with zero using nan_to_num
     Step_Frequency[Step_Frequency == 0.0] = np.nan_to_num(Step_Frequency[Step_Frequency != 0.0].mean())
-    Gama[i, 0:1] = Step_Frequency.mean(axis=0) #compute average of 4 joints for calculation frequency
+    Gama[i, 0:1] = Step_Frequency.mean(axis=0) #compute average of 4 joints for to calculate frequency
     Gama[i, 1:5] = Step_duration
 
 # Make Gamma zmuv
