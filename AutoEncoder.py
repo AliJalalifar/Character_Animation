@@ -15,6 +15,8 @@ DataSet = ".\\data\\data_cmu2.npz"
 preprocess = np.load('ZMUV_locomotion.npz')
 Data = np.load(DataSet)['clips']
 
+np.random.shuffle(Data)
+
 # make data Zero Mean - Unit Variance
 Xmean = preprocess['mean']
 Xstd = preprocess['std']
