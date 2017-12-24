@@ -68,5 +68,5 @@ X[:,:,66:69]= Trajectory[0, :, 0:3]
 X = ((X*Xstd)+Xmean).swapaxes(1,2)
 
 # Animate! :D
-animation_plot([X2],interval=1)
+animation_plot([X],interval=1)
 
