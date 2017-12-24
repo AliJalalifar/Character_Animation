@@ -8,7 +8,7 @@ from utils import load_Model,F_extract
 import numpy as np
 import sys
 sys.path.append('./motion/')
-from AnimationPlot import animation_plot
+from view import animation_plot
 from keras.layers import Input
 from keras.models import Model
 
