@@ -1,4 +1,4 @@
-#Note: I modified this file so it is different from AnimationPlot.py in the dataset
+#Note: I modified this file so it is a little different from view.py in the dataset
 
 import numpy as np
 import matplotlib.pyplot as plt
