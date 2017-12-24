@@ -5,7 +5,7 @@
 ################################################
 
 import numpy as np
-from keras.models import model_from_json,,Input,Model
+from keras.models import model_from_json,Input,Model
 
 # a helper function for loading trained networks
 def load_Model(path):
