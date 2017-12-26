@@ -1,3 +1,10 @@
+################################################
+#                                              #
+#       Implementation of Section 7.2          #
+#  "Motion Stylization in Hidden Unit Space"   #
+#                                              #
+################################################
+
 import numpy as np
 import tensorflow as tf
 from keras import Model, Input
