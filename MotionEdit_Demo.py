@@ -59,7 +59,7 @@ Y = tf.placeholder('float64')
 Z = tf.placeholder('float64')
 Gx = tf.matmul(tf.transpose(X),X) #Gram matrix of X
 
-# Cost function to be minimized. See 7.2., e.q. 14
+# Cost function to be minimized. See 7.2., eq. 14.
 cost = s* tf.norm(Y-Gx)+ c* tf.norm(Z-X)
 
 # Gradient descent
