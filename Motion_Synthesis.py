@@ -25,7 +25,7 @@ X_decoded = Data
 Upsilon_T = Data[:,:,-7:]  #[xvelocity,zvelocity,rvelocity, lh,lt,rh,rt]
 
 # map data to motion manifold space | feature space -> hidden space
-X_encoded = Motion_Edit(X_decoded)
+X_encoded = Motion_Edit(X_decoded,'.\\model\\autoencoder_ND')
 
 #defining Network structure , input-shape: (None,240,7) / output-shape: (None,120,256)
 input_shape = Input((240,7))
