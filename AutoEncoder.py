@@ -20,7 +20,7 @@ np.random.shuffle(Data)
 # make data Zero Mean - Unit Variance
 Xmean = preprocess['mean']
 Xstd = preprocess['std']
-Data = Data-Xmean/Xstd
+Data = (Data-Xmean)/Xstd
 
 # split train and validation data, since it's an autoencoder input and output are the same
 train_length = int(np.floor(len(Data)*0.8))
